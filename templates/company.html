@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#667eea,#764ba2);
+font-family:Poppins;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+button{
+width:200px;
+padding:12px;
+margin:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+color:white;
+cursor:pointer;
+}
+
+.amazon{background:#ff9900;}
+.google{background:#4285F4;}
+.tcs{background:#e53935;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Select Company</h2>
+
+<form method="post">
+<button name="company" value="Amazon" class="amazon">Amazon</button>
+<button name="company" value="Google" class="google">Google</button>
+<button name="company" value="TCS" class="tcs">TCS</button>
+</form>
+
+</div>
+
+</body>
+</html>

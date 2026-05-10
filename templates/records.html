@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+font-family:Poppins;
+background:linear-gradient(135deg,#667eea,#764ba2);
+color:white;
+text-align:center;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:80%;
+background:white;
+color:black;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+}
+
+th{
+background:#6c63ff;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Your Records</h2>
+
+<table>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+<th>Score/Feedback</th>
+</tr>
+
+{% for r in data %}
+<tr>
+<td>{{r[1]}}</td>
+<td>{{r[2]}}</td>
+<td>{{r[3]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+<a href="/dashboard">Back</a>
+
+</body>
+</html>

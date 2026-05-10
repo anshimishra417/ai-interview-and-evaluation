@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#667eea,#764ba2);
+font-family:Poppins;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:20px;
+width:700px;
+}
+
+textarea{
+width:100%;
+height:300px;
+padding:10px;
+font-size:15px;
+}
+
+button{
+margin-top:15px;
+padding:12px;
+width:100%;
+background:#28a745;
+color:white;
+border:none;
+border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>{{ q }} ({{ company }})</h2>
+<p>{{ desc }}</p>
+
+<form method="post">
+<textarea name="answer" placeholder="Write your code here..."></textarea>
+<button>Submit Answer</button>
+</form>
+
+</div>
+
+</body>
+</html>

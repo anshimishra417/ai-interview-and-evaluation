@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#667eea,#764ba2);
+font-family:Poppins;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+button{
+width:200px;
+padding:12px;
+margin:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+color:white;
+}
+
+.easy{background:#28a745;}
+.medium{background:#ffc107;color:black;}
+.hard{background:#dc3545;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Select Difficulty</h2>
+
+<form method="post">
+<button name="level" value="easy" class="easy">Easy</button>
+<button name="level" value="medium" class="medium">Medium</button>
+<button name="level" value="hard" class="hard">Hard</button>
+</form>
+
+</div>
+
+</body>
+</html>

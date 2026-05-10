@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Poppins;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+width:500px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+color:white;
+}
+
+.start{background:#6c63ff;}
+.submit{background:#28a745;}
+.next{background:#ff9800;}
+
+#res{
+margin-top:15px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2 id="q">{{ question }}</h2>
+
+<button class="start" onclick="start()">🎤 Speak</button>
+
+<p id="ans">Your answer will appear here</p>
+
+<button class="submit" onclick="submitAns()">Submit</button>
+
+<h3 id="res"></h3>
+
+<button class="next" onclick="nextQ()">Next</button>
+
+</div>
+
+<script>
+
+let questionText = document.getElementById("q");
+let answerText = document.getElementById("ans");
+
+// AUTO SPEAK (FIXED)
+window.onload = function(){
+let msg = new SpeechSynthesisUtterance(questionText.innerText);
+speechSynthesis.speak(msg);
+}
+
+// SPEECH INPUT
+let rec = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+function start(){
+rec.start();
+
+rec.onresult = (e)=>{
+answerText.innerText = e.results[0][0].transcript;
+}
+}
+
+// SUBMIT ANSWER
+function submitAns(){
+
+fetch('/voice',{
+method:'POST',
+headers:{'Content-Type':'application/x-www-form-urlencoded'},
+body:`answer=${encodeURIComponent(answerText.innerText)}&question=${encodeURIComponent(questionText.innerText)}`
+})
+.then(async res => {
+
+let data = await res.json();
+
+// 🔥 CLEAN OUTPUT (NO SYSTEM ERROR EVER)
+document.getElementById("res").innerText =
+`Score: ${data.score}/10 | ${data.remark} | ${data.feedback}`;
+
+// SPEAK ONLY FEEDBACK
+let msg = new SpeechSynthesisUtterance(data.feedback);
+speechSynthesis.speak(msg);
+
+})
+.catch(()=>{
+document.getElementById("res").innerText = "Server error (check backend)";
+});
+
+}
+
+// NEXT QUESTION
+function nextQ(){
+window.location.href="/voice";
+}
+
+</script>
+
+</body>
+</html>

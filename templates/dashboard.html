@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    font-family:'Poppins';
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.box {
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    width:400px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 { margin-bottom:20px; }
+
+button {
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+    color:white;
+}
+
+.voice {background:#6c63ff;}
+.code {background:#28a745;}
+.graph {background:#17a2b8;}
+.record {background:#ffc107;color:black;}
+.pdf {background:#ff5722;}
+.logout {background:#dc3545;}
+
+button:hover {transform:scale(1.05);}
+</style>
+</head>
+
+<body>
+<div class="box">
+<h1>Welcome {{ session['user'] }}</h1>
+
+<a href="/select_level"><button class="voice">🎤 Voice Interview</button></a>
+<a href="/coding"><button class="code">💻 Coding Interview</button></a>
+<a href="/graph"><button class="graph">📊 Graph</button></a>
+<a href="/records"><button class="record">📋 Records</button></a>
+<a href="/download"><button class="pdf">📄 PDF</button></a>
+<a href="/logout"><button class="logout">Logout</button></a>
+
+</div>
+</body>
+</html>
