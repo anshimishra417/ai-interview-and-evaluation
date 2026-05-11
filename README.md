@@ -163,7 +163,7 @@ Then open `http://localhost:5000` in your browser.
 
 **Anshi Mishra**
 B.Tech Computer Science — Graphic Era Hill University
-[LinkedIn](https://linkedin.com/in/YOUR_PROFILE) • [GitHub](https://github.com/anshimishra417)
+[LinkedIn](https://www.linkedin.com/in/anshi-mishra-0718682b5/) • [GitHub] (https://github.com/anshimishra417)
 
 ---
 
